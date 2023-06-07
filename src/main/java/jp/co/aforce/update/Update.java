@@ -29,6 +29,7 @@ public class Update extends HttpServlet {
 		
 		MemberInfo memberInfo = new MemberInfo();
 		
+		memberInfo.setMemberNumber(request.getParameter("memberId"));
 		memberInfo.setLastName(request.getParameter("lastName"));
 		memberInfo.setFirstName(request.getParameter("firstName"));
 		memberInfo.setSex(request.getParameter("sex"));
@@ -43,12 +44,7 @@ public class Update extends HttpServlet {
 		int update = 0;
 		
 		try {
-			update = dao3.countUpdateRows(memberInfo);
-			if(update == 1) {
-			out.println("情報の更新に成功しました。");
-			}else{
-			out.println("情報の更新に失敗しました。");
-			}
+			 update = dao3.countUpdateRows(memberInfo);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -56,7 +52,9 @@ public class Update extends HttpServlet {
 			out.println("情報の更新に成功しました。");
 			}else{
 			out.println("情報の更新に失敗しました。");
+			
 			}
+		out.println(update);
 		
 		Page.footer(out);
 	}

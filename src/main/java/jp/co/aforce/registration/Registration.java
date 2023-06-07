@@ -53,11 +53,8 @@ public class Registration extends HttpServlet {
 		try {
 			count = dao1.countMatchingRows(memberInfo);
 		} catch (Exception e) {
-			// TODO 自動生成された catch ブロック
 			out.println(e);
 		}
-		
-		
 		if(count >= 1) {
 			out.println("会員情報は既に登録されています。");
 		}else {

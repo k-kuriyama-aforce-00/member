@@ -17,7 +17,7 @@
 <div class="input">
 	
 	
-	
+
 	
 		<form action="../jp.co.aforce/memberserch" method="post">
 			<p>■会員番号<br>
@@ -29,7 +29,8 @@
 		if(member_info != null){
 		for( MemberInfo m : member_info){
 			%>
-			<form action="../jp.co.aforce/update" method="post">
+	<form action="../jp.co.aforce/update" method="post">
+		<input type="hidden" name="memberId" value="${member_id}">
 		<P>■名前<br>
 			姓<input type="text" name="firstName" value="<%= m.getFirstName() %>"  required>名<input type="text" name="lastName" value=<%= m.getLastName() %> required>
 		</P>
@@ -38,7 +39,7 @@
 			<input type="radio" name="sex" <% if(m.getSex().equals("女")){%>checked<%} %> value="女">女
 		</p>
 		<P>■生年月日<br>
-			<select name="birth_year"  value="<%= m.getBirthYear() %>" required>
+			<select name="birthYear"  value="<%= m.getBirthYear() %>" required>
                 <option value=""></option>
                     <%for (int i = 1920; i <= 2020; i++) {%>
                     <option value="<%=i%>" <%if (i == m.getBirthYear()) {%> selected
@@ -48,7 +49,7 @@
               
              
 			<select name="birthMonth" value<%= m.getBirthMonth() %>" required>
-                <option value="item1"></option>
+                <option value=""></option>
                 <%for (int i = 1; i <= 12; i++) {%>
                 <option value="<%=i%>" <%if (i == m.getBirthMonth()) {%> selected
                                 <%}%>><%=i%></option>
